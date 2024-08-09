@@ -10,6 +10,9 @@ elementos que não precisam ser removidos com as operações envolvendo o tamanh
 do vetor. */
 
 void iniciar(deque *q, int M) {
+    if (q->elementos != NULL) {
+        free(q->elementos);
+    }
     q->I = -1;
     q->F = -1;
     q->elementos = (int*)malloc(M * sizeof(int));
@@ -76,12 +79,12 @@ int removerF(deque *q, int M) {
 void mostrar(deque *q, int M) {
     if (vazia(q)) {
         printf("vetor vazio\n");
+        return;
     }
-    int item;
-    item = q->I;
-    while (item != q->F) {
+    int item = q->I;
+    do {
         printf("%d ", q->elementos[item]);
         item = (item + 1) % M;
-    }
-    printf("%d\n", q->elementos[q->F]);
+    } while (item != (q->F + 1) % M);
+    printf("\n");
 }

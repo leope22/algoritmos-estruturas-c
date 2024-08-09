@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     deque q;
     iniciar(&q, M);
     
-    char op[7];
+    char op[8];
     char iI[] = "insereI";
     char iF[] = "insereF";
     char rI[] = "removeI";
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
                 inserirI(&q, num, M);
             }
         }
-        if (strcmp(iF, op) == 0) {
+        else if (strcmp(iF, op) == 0) {
             scanf("%d", &num);
             if (cheia(&q, M)) {
                 printf("cheia\n");
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
                 inserirF(&q, num, M);
             }
         }
-        if (strcmp(rI, op) == 0) {
+        else if (strcmp(rI, op) == 0) {
             if (vazia(&q)) {
                 printf("vazia\n");
             } else {
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
                 printf("%d\n", item);
             }
         }
-        if (strcmp(rF, op) == 0) {
+        else if (strcmp(rF, op) == 0) {
             if (vazia(&q)) {
                 printf("vazia\n");
             } else {
@@ -81,9 +81,10 @@ int main(int argc, char *argv[]) {
                 printf("%d\n", item);
             }
         }
-        if (strcmp(m, op) == 0) {
+        else if (strcmp(m, op) == 0) {
             mostrar(&q, M);
         }
     }
+    free(q.elementos);
     return 0;
 }
