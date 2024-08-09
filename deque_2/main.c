@@ -75,7 +75,7 @@ int main(int argc,char *argv[])
 	
 	deque q;
 	
-	char op[7];
+	char op[8];
 	char iI[] = "insereI";
 	char iF[] = "insereF";
 	char rI[] = "removeI";
